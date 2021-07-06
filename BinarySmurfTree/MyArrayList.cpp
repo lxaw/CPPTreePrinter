@@ -4,6 +4,13 @@
 #include "MyArrayList.h"
 #include "Node.h"
 
+/*
+
+This class has nothing to do with the video. 
+I was going to do a different project prior, and wanted to make an array list that can merge sort.
+
+*/
+
 template <class T>
 MyArrayList<T>::MyArrayList() {
 	_head = nullptr;

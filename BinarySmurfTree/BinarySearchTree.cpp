@@ -183,10 +183,19 @@ BSTNode<T>* BinarySearchTree<T>::findMinInTree(BSTNode<T>* aBSTNode) {
 template <class T>
 void BinarySearchTree<T>::printTree(BSTNode<T>* currNode, std::string prefix, BSTNode<T>* parentLeft, BSTNode<T>* parentRight,int currDepth,bool printDepth) {
 	if (currNode == nullptr) {
+		// halting condition
 		return;
 	}
+	// update the current depth of the node
 	int newDepth = currDepth + 1;
+	/*
+	"prefix" represents the characters that are to be printed prior to the data.
+	This allows for proper spacing and the placement of pipe characters.
+	*/
 	std::string newPrefix = prefix;
+	/*
+	"printDepth" is a boolean that will allow you to print the depth of the node beside its data.
+	*/
 	if (printDepth) {
 		if (currNode == _root) {
 			std::cout << newPrefix  << currNode->_data << " -- depth: " << newDepth<< "\n";
@@ -208,6 +217,11 @@ void BinarySearchTree<T>::printTree(BSTNode<T>* currNode, std::string prefix, BS
 	BSTNode<T>* right = currNode->_right;
 	
 	if (parentRight && (parentLeft == currNode)) {
+		/*
+		The idea here is that any nodes with a parent that has two children, 
+		where the left child is the current node itself, are nodes that will need pipes underneath them.
+		See video.
+		*/
 		// has two children
 		newPrefix.append("|  ");
 	}

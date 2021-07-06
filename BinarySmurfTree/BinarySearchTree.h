@@ -3,6 +3,15 @@
 
 #include <string>
 
+
+/*
+
+This is a (beginner level) implementation of a Binary Search Tree.
+
+Again, I do not know much C++ at the moment, so please let me know if anything is out of wack. It works for now though.
+
+*/
+
 template <class T>
 class BinarySearchTree
 {
@@ -30,6 +39,10 @@ private:
 	void printEmptyTree();
 
 	// recursive methods
+
+	/*
+	I have split all recursive methods between the callable version from main, and the one that is called to recurse.
+	*/
 	BSTNode<T>* add(BSTNode<T>* aBSTNode, T aData);
 	void printPreorder(BSTNode<T>* aBSTNode);
 	bool search(BSTNode<T>* aBSTNode, T aData);
