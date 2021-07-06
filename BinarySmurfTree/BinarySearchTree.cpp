@@ -181,18 +181,18 @@ BSTNode<T>* BinarySearchTree<T>::findMinInTree(BSTNode<T>* aBSTNode) {
 }
 
 template <class T>
-void BinarySearchTree<T>::printTree(BSTNode<T>* currNode, std::string prefix, BSTNode<T>* parentLeft, BSTNode<T>* parentRight,int currLevel,bool printDepth) {
+void BinarySearchTree<T>::printTree(BSTNode<T>* currNode, std::string prefix, BSTNode<T>* parentLeft, BSTNode<T>* parentRight,int currDepth,bool printDepth) {
 	if (currNode == nullptr) {
 		return;
 	}
-	int nextLevel = currLevel + 1;
+	int newDepth = currDepth + 1;
 	std::string newPrefix = prefix;
 	if (printDepth) {
 		if (currNode == _root) {
-			std::cout << newPrefix << "d" << currLevel << "->" << currNode->_data << "\n";
+			std::cout << newPrefix  << currNode->_data << " -- depth: " << newDepth<< "\n";
 		}
 		else {
-			std::cout << newPrefix <<  "d" << currLevel << "->" <<"L_" << currNode->_data<< "\n";
+			std::cout << newPrefix <<"L_" << currNode->_data << " -- depth: " << newDepth<< "\n";
 		}
 	}
 	else {
@@ -200,7 +200,7 @@ void BinarySearchTree<T>::printTree(BSTNode<T>* currNode, std::string prefix, BS
 			std::cout << newPrefix << currNode->_data << "\n";
 		}
 		else {
-			std::cout << newPrefix<<"L________" << currNode->_data<< "\n";
+			std::cout << newPrefix<<"L__" << currNode->_data<< "\n";
 		}
 
 	}
@@ -209,18 +209,18 @@ void BinarySearchTree<T>::printTree(BSTNode<T>* currNode, std::string prefix, BS
 	
 	if (parentRight && (parentLeft == currNode)) {
 		// has two children
-		newPrefix.append("|      ");
+		newPrefix.append("|  ");
 	}
 	else {
-		newPrefix.append("       ");
+		newPrefix.append("   ");
 	}
 
-	if (currLevel > _maxDepth) {
-		_maxDepth = currLevel;
+	if (currDepth > _maxDepth) {
+		_maxDepth = currDepth;
 	}
 		
-	printTree(left,newPrefix,left,right,nextLevel,printDepth);
-	printTree(right,newPrefix,left,right,nextLevel,printDepth);
+	printTree(left,newPrefix,left,right,newDepth,printDepth);
+	printTree(right,newPrefix,left,right,newDepth,printDepth);
 }
 
 template <class T>

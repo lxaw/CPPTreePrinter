@@ -35,6 +35,6 @@ private:
 	bool search(BSTNode<T>* aBSTNode, T aData);
 	BSTNode<T>* remove(BSTNode<T>* aBSTNode, T aData);
 	BSTNode<T>* findMinInTree(BSTNode<T>* aBSTNode);
-	void printTree(BSTNode<T>* aBSTNode, std::string prefix,BSTNode<T>* leftChild, BSTNode<T>* rightChild,int currLevel,bool printDepth);
+	void printTree(BSTNode<T>* aBSTNode, std::string prefix,BSTNode<T>* leftChild, BSTNode<T>* rightChild,int currDepth,bool printDepth);
 };
 
